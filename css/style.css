@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+nav {
+    background-color: #333; /* Added a background color for better visibility */
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Center align for mobile */
+}
+
+nav ul li {
+    display: inline-block; /* Changed to inline-block for better spacing */
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+main {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow */
+    box-sizing: border-box; /* Ensure padding and borders are included in the total width and height */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire element while maintaining aspect ratio */
+    z-index: 0; /* Ensure the video is behind other content */
+}
+
+.clickable-area {
+    position: absolute;
+    top: 20%; /* Adjust this value to position the clickable area */
+    left: 30%; /* Adjust this value to position the clickable area */
+    width: 20%; /* Adjust this value for the width of the clickable area */
+    height: 20%; /* Adjust this value for the height of the clickable area */
+    background-color: rgba(255, 0, 0, 0); /* Transparent background */
+    cursor: pointer;
+    z-index: 1; /* Ensure the clickable area is above the video */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
+}
+
+/* Class to make it visible */
+.clickable-area.visible {
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fully visible */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .clickable-area {
+        top: 10%; /* Adjusted for smaller screens */
+        left: 10%; /* Adjusted for smaller screens */
+        width: 80%; /* Adjusted for smaller screens */
+        height: 20%; /* Adjusted for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .clickable-area {
+        top: 5%; /* Adjusted for very small screens */
+        left: 5%; /* Adjusted for very small screens */
+        width: 90%; /* Adjusted for very small screens */
+        height: 15%; /* Adjusted for very small screens */
+    }
+}
